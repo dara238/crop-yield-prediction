@@ -1,0 +1,11 @@
+# Streamlit theme settings (makes built-in widgets match style.css)
+[theme]
+base = "light"
+primaryColor = "#2d6a4f"
+backgroundColor = "#f4f6f5"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#1d2b24"
+
+[client]
+# Hide developer options in the top-right menu
+toolbarMode = "viewer"

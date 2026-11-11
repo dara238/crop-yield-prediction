@@ -1,0 +1,484 @@
+/* ==========================================================
+   style.css — Crop Yield Prediction System
+   Clean agricultural theme: green, white and light gray
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ---------- 1. Colour palette and shared values ---------- */
+:root {
+    --green-dark: #1b4332;
+    --green: #2d6a4f;
+    --green-mid: #40916c;
+    --green-light: #d8f3dc;
+    --green-pale: #f0f7f2;
+    --gray-bg: #f4f6f5;
+    --gray-border: #e2e8e4;
+    --gray-text: #5f6f66;
+    --text: #1d2b24;
+    --red: #b42318;
+    --radius: 14px;
+    --shadow: 0 4px 18px rgba(27, 67, 50, 0.08);
+    --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- 2. Page layout ---------- */
+.stApp {
+    background: var(--gray-bg);
+}
+
+[data-testid="stMainBlockContainer"],
+.block-container {
+    max-width: 1100px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+/* Use the same professional font for text */
+.stApp p, .stApp li, .stApp label, .stApp input,
+.stApp button p, .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+    font-family: var(--font);
+}
+
+.stApp p, .stApp li {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ---------- 3. Sidebar ---------- */
+[data-testid="stSidebar"] {
+    background: #ffffff;
+    border-right: 1px solid var(--gray-border);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+}
+
+.sidebar-logo {
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.2rem 0.45rem;
+}
+
+.sidebar-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: var(--font);
+}
+
+.sidebar-subtitle {
+    color: var(--green-light);
+    font-size: 0.85rem;
+    font-family: var(--font);
+}
+
+.sidebar-note {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--gray-text);
+    background: var(--gray-bg);
+    border-radius: 10px;
+    font-family: var(--font);
+}
+
+/* ---------- 4. Main title (hero banner) ---------- */
+.hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%);
+    border-radius: 20px;
+    padding: 2.6rem 2.4rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--green-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-family: var(--font);
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.15;
+    font-family: var(--font);
+}
+
+.stApp .hero-text {
+    color: #e3f2e7;
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0.8rem 0 1.4rem 0;
+}
+
+.stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.stat-chip {
+    background: #ffffff;
+    color: var(--gray-text);
+    border-radius: 10px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.88rem;
+    font-family: var(--font);
+}
+
+.stat-chip span {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* ---------- 5. Cards (intro, steps, model info) ---------- */
+.card {
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.7rem;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+.stApp .card h3, .stApp .card h4 {
+    color: var(--green-dark);
+    margin: 0 0 0.6rem 0;
+    padding: 0;
+    font-weight: 700;
+}
+
+.stApp .card h3 { font-size: 1.35rem; }
+.stApp .card h4 { font-size: 1.1rem; }
+
+.intro-card {
+    border-left: 5px solid var(--green-mid);
+}
+
+.step-card {
+    height: 100%;
+    min-height: 190px;
+}
+
+.step-number {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 700;
+    font-family: var(--font);
+}
+
+.section-title {
+    margin: 1.6rem 0 0.8rem 0;
+    color: var(--green-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: var(--font);
+}
+
+.disclaimer {
+    margin: 1.2rem 0;
+    padding: 1rem 1.3rem;
+    background: #fffbea;
+    border: 1px solid #f4e3a1;
+    border-left: 5px solid #e0b100;
+    border-radius: var(--radius);
+    color: #5c4a00;
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
+.stApp .small-note {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    margin: 0.8rem 0 0 0;
+}
+
+/* ---------- 6. Page headers ---------- */
+.page-header {
+    margin-bottom: 1.2rem;
+}
+
+.page-title {
+    color: var(--green-dark);
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: var(--font);
+}
+
+.page-header p {
+    color: var(--gray-text) !important;
+    margin-top: 0.2rem;
+}
+
+/* ---------- 7. Input form ---------- */
+[data-testid="stForm"] {
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: 18px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: var(--shadow);
+}
+
+.form-section {
+    margin: 0.4rem 0 0.2rem 0;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--green-pale);
+    color: var(--green);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: var(--font);
+}
+
+/* Rounded input boxes */
+[data-testid="stForm"] [data-baseweb="input"],
+[data-testid="stForm"] [data-baseweb="select"] > div {
+    border-radius: 10px;
+}
+
+/* ---------- 8. "Predict Yield" button ---------- */
+/* Let the button's wrapper boxes use the full form width */
+[data-testid="stElementContainer"]:has([data-testid="stFormSubmitButton"]),
+[data-testid="stElementContainer"]:has([data-testid="stFormSubmitButton"]) > div,
+[data-testid="stFormSubmitButton"] {
+    width: 100% !important;
+}
+
+[data-testid="stFormSubmitButton"] button {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--green), var(--green-mid));
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(45, 106, 79, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-testid="stFormSubmitButton"] button p {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+[data-testid="stFormSubmitButton"] button:hover {
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(45, 106, 79, 0.32);
+}
+
+/* ---------- 9. Result card ---------- */
+.result-card {
+    margin: 1.6rem 0 1.2rem 0;
+    padding: 1.6rem 1.8rem;
+    background: #ffffff;
+    border: 1px solid var(--green-light);
+    border-top: 6px solid var(--green-mid);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(27, 67, 50, 0.12);
+    font-family: var(--font);
+}
+
+.result-header {
+    color: var(--green-dark);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.result-metric {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem;
+}
+
+.result-label {
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.result-value {
+    color: var(--green-dark);
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.3rem 0;
+}
+
+.result-value span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.result-sub {
+    color: var(--gray-text);
+    font-size: 0.88rem;
+}
+
+.result-note {
+    margin-top: 1rem;
+    color: var(--gray-text);
+    font-size: 0.92rem;
+}
+
+/* ---------- 10. Factor explanation rows ---------- */
+.factor-summary {
+    margin-bottom: 0.8rem;
+}
+
+.factor-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-family: var(--font);
+}
+
+.factor-name {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.factor-detail {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+}
+
+.factor-effect {
+    white-space: nowrap;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.effect-pos     { background: var(--green-light); color: var(--green-dark); }
+.effect-neg     { background: #fde8e6; color: var(--red); }
+.effect-neutral { background: var(--gray-bg); color: var(--gray-text); }
+
+/* ---------- 11. Model information page ---------- */
+.metric-card {
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    box-shadow: var(--shadow);
+    min-height: 175px;
+    margin-bottom: 1rem;
+    font-family: var(--font);
+}
+
+.metric-name {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+}
+
+.metric-value {
+    color: var(--green-dark);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.metric-value span {
+    font-size: 1rem;
+    color: var(--gray-text);
+    font-weight: 600;
+}
+
+.stApp .metric-card p {
+    font-size: 0.88rem;
+    color: var(--gray-text);
+    margin: 0.3rem 0 0 0;
+}
+
+.importance-row {
+    display: grid;
+    grid-template-columns: 170px 1fr 50px;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0.55rem 0;
+    font-family: var(--font);
+    font-size: 0.92rem;
+}
+
+.importance-track {
+    height: 12px;
+    background: var(--gray-bg);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.importance-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--green-mid));
+    border-radius: 999px;
+}
+
+.importance-value {
+    text-align: right;
+    font-weight: 600;
+    color: var(--green-dark);
+}
+
+/* ---------- 12. Footer ---------- */
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-border);
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.82rem;
+    font-family: var(--font);
+}
+
+/* ---------- 13. Responsive design (tablets and phones) ---------- */
+@media (max-width: 768px) {
+    .hero { padding: 1.8rem 1.4rem; }
+    .hero-title { font-size: 1.9rem; }
+    .page-title { font-size: 1.6rem; }
+    .result-grid { grid-template-columns: 1fr; }
+    .result-value { font-size: 2rem; }
+    .card, [data-testid="stForm"], .result-card { padding: 1.2rem; }
+    .importance-row { grid-template-columns: 110px 1fr 40px; font-size: 0.85rem; }
+    .factor-row { flex-direction: column; align-items: flex-start; }
+    .step-card, .metric-card { min-height: auto; }
+}

@@ -1,0 +1,85 @@
+/* ==========================================================
+   animations.css — motion effects
+   Delete this file to switch every animation off.
+   ========================================================== */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growBar {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+@keyframes popIn {
+    0%   { opacity: 0; transform: scale(0.85); }
+    70%  { transform: scale(1.04); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseRing {
+    0%   { box-shadow: 0 0 0 0 rgba(64, 145, 108, 0.45); }
+    100% { box-shadow: 0 0 0 10px rgba(64, 145, 108, 0); }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-7deg); }
+    50%      { transform: rotate(7deg); }
+}
+
+@keyframes shimmer {
+    from { background-position: 0% 50%; }
+    to   { background-position: 100% 50%; }
+}
+
+/* Things that slide up when they appear */
+.fade-up,
+.hero, .card, .result-card, .disclaimer, .lock-card,
+[data-testid="stForm"],
+[data-testid="stVegaLiteChart"] {
+    animation: fadeUp 0.5s ease both;
+}
+
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.15s; }
+.delay-3 { animation-delay: 0.25s; }
+.delay-4 { animation-delay: 0.35s; }
+
+/* Hero: slow moving gradient */
+.hero {
+    background-size: 200% 200%;
+    animation: fadeUp 0.5s ease both, shimmer 9s ease-in-out infinite alternate;
+}
+
+/* The crop icon in the sidebar sways like a plant in the wind */
+.sidebar-logo { display: inline-block; transform-origin: bottom center; animation: sway 3.5s ease-in-out infinite; }
+
+/* Cards lift when the mouse is over them */
+.card, .metric-card, .stage-block {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover, .metric-card:hover, .stage-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(27, 67, 50, 0.13);
+}
+
+/* Growth stages grow from left to right, one after another */
+.stage-seg { animation: growBar 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* Result numbers pop in */
+.result-value { animation: popIn 0.6s ease both; animation-delay: 0.15s; }
+.factor-row   { animation: fadeUp 0.45s ease both; }
+.factor-row:nth-of-type(2) { animation-delay: 0.1s; }
+.factor-row:nth-of-type(3) { animation-delay: 0.2s; }
+.factor-row:nth-of-type(4) { animation-delay: 0.3s; }
+
+/* The step the user should do next pulses gently */
+.step.active .step-dot { animation: pulseRing 1.6s ease-out infinite; }
+
+/* Respect people who turn animations off in their system settings */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}

@@ -1,0 +1,181 @@
+/* ==========================================================
+   components.css — parts added on top of base.css
+   (sidebar menu, stepper, growth timeline, buttons, lock card)
+   ========================================================== */
+
+/* ---------- Sidebar menu: pills instead of radio circles ---------- */
+[data-testid="stSidebar"] [role="radiogroup"] { gap: 0.3rem; }
+
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    display: flex;
+    width: 100% !important;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadio"],
+[data-testid="stSidebar"] [data-testid="stRadio"] > div,
+[data-testid="stSidebar"] [role="radiogroup"],
+[data-testid="stSidebar"] [role="radiogroup"] > div { width: 100% !important; }
+
+/* hide the round radio mark, keep the text */
+[data-testid="stSidebar"] [role="radiogroup"] label > div > div:first-child:not([data-testid]) { display: none; }
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    background: var(--green-pale);
+    transform: translateX(3px);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {
+    background: var(--green-light);
+    box-shadow: inset 4px 0 0 var(--green-mid);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) p {
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+/* ---------- Stepper: data -> train -> predict ---------- */
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0 0 1.4rem 0;
+    padding: 0.8rem 1.1rem;
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    font-family: var(--font);
+}
+
+.step { display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+
+.step-dot {
+    width: 1.7rem;
+    height: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--gray-bg);
+    color: var(--gray-text);
+    border: 2px solid var(--gray-border);
+}
+
+.step-text { font-size: 0.92rem; color: var(--gray-text); font-weight: 600; }
+.step-line { flex: 1; height: 2px; background: var(--gray-border); border-radius: 2px; }
+
+.step.done .step-dot   { background: var(--green-mid); border-color: var(--green-mid); color: #ffffff; }
+.step.done .step-text  { color: var(--green-dark); }
+.step.active .step-dot { background: #ffffff; border-color: var(--green-mid); color: var(--green-dark); }
+.step.active .step-text { color: var(--text); }
+
+/* ---------- Growth-stage timeline ---------- */
+.stage-block {
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.7rem;
+    font-family: var(--font);
+}
+
+.stage-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.stage-head b { color: var(--green-dark); }
+.stage-head span { color: var(--gray-text); font-size: 0.86rem; }
+.stage-head span b { color: var(--green); }
+
+.stage-track { display: flex; gap: 3px; height: 16px; }
+
+.stage-seg { border-radius: 6px; transform-origin: left center; }
+.stage-1 { background: #b7e4c7; }
+.stage-2 { background: #74c69d; }
+.stage-3 { background: #40916c; }
+.stage-4 { background: #1b4332; }
+
+.stage-labels { display: flex; gap: 3px; margin-top: 0.4rem; }
+
+.stage-label { min-width: 0; font-size: 0.76rem; line-height: 1.3; }
+.stage-label b, .stage-label span {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.stage-label b { color: var(--text); font-weight: 600; }
+.stage-label span { color: var(--gray-text); }
+
+/* ---------- Locked page message ---------- */
+.lock-card {
+    text-align: center;
+    background: #ffffff;
+    border: 1px dashed var(--green-mid);
+    border-radius: 18px;
+    padding: 2.4rem 1.5rem;
+    margin: 1rem 0;
+    font-family: var(--font);
+}
+
+.lock-icon { font-size: 2.6rem; }
+.lock-card h3 { color: var(--green-dark); margin: 0.4rem 0; font-size: 1.35rem; }
+.lock-card p { color: var(--gray-text); margin: 0; }
+
+/* ---------- Buttons and inputs everywhere ---------- */
+.stApp [data-testid="stBaseButton-primary"],
+.stApp [data-testid="stBaseButton-secondary"],
+.stApp [data-testid="stDownloadButton"] button {
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stApp [data-testid="stBaseButton-primary"]:hover,
+.stApp [data-testid="stBaseButton-secondary"]:hover,
+.stApp [data-testid="stDownloadButton"] button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 106, 79, 0.18);
+}
+
+.stApp [data-testid="stFileUploaderDropzone"] {
+    border: 2px dashed var(--green-mid);
+    border-radius: var(--radius);
+    background: var(--green-pale);
+    transition: background 0.2s ease;
+}
+
+.stApp [data-testid="stFileUploaderDropzone"]:hover { background: var(--green-light); }
+
+/* Step selector on the Upload page */
+[data-testid="stMain"] [role="radiogroup"] { gap: 0.5rem; }
+
+/* Charts and tables sit on white rounded panels */
+.stApp [data-testid="stVegaLiteChart"],
+.stApp [data-testid="stDataFrame"] {
+    background: #ffffff;
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 0.6rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* charts size themselves to the full panel width, so the panel has no side padding */
+.stApp [data-testid="stVegaLiteChart"] { padding: 0.5rem 0 0 0; }
+
+.chart-title { font-family: var(--font); font-weight: 600; color: var(--text); margin: 0.6rem 0 0.4rem 0; }
+
+.metric-card { min-height: 150px; }
+.metric-value.small { font-size: 1.45rem; line-height: 2.2rem; }
+
+@media (max-width: 768px) {
+    .stepper { flex-wrap: wrap; }
+    .step-line { display: none; }
+    .stage-labels { display: none; }
+}
