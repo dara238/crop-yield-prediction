@@ -46,4 +46,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-# streamlit run "D:\Website& webapplication\crop_yield_app\app.py"
+
